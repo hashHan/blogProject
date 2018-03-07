@@ -1,37 +1,29 @@
 <template>
-  <div id="menu">
-    menu -get and show titles and dates
-    <br><br>
-    <br><br>
-    <div v-for="(each, index) in hardContent" :key="index" class="loop-menu">
-          <div class="post-number">
-              {{ each.number}}
-            
-          </div>   
-          <div class="post-title" :value="each.number" @click="articlenumber"> 
-              {{ each.title }}
-             
+  <div id="menu">   
+    <div id="accordion">
+      <div :id="mysection" class="card" v-for="(each, index) in hardContent" :key="index">
+        <div class="card-header" :id="'heading' + mysection + each.number">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" :data-target="'#collapse'+ mysection + each.number" 
+                    aria-expanded="true" :aria-controls="'#collapse'+mysection+each.number">
+                      #{{ each.number}}. {{ each.title }} <h6>{{ each.date }}</h6>
+            </button>
+          </h5>
+        </div>
+
+        <div :id="'collapse'+ mysection + each.number" class="collapse show" 
+              :aria-labelledby="'heading' + mysection + each.number" data-parent="#accordion">
+          <div class="card-body">
+            {{ each.body}}
           </div>
-          <div class="post-date">
-              {{ each.date }}
-          </div>
-    </div>
-    <div>
-        from article:
-        {{articleindex}}    
-        {{hardContent[articleindex].body}}   
-        <!-- <app-myarticle>
-           <span slot="articleBody">change body</span>
-        </app-myarticle> -->
-        <br>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import myArticle from './Article.vue';
-
 export default {
-  props: ['hardContent', 'articleindex'],
+  props: ['hardContent', 'articleindex', 'mysection'],
   data(){
     return {
 
@@ -47,7 +39,7 @@ export default {
     }
   },
   components:{
-      appMyarticle: myArticle
+     //
   }
 }
 </script>

@@ -1,9 +1,10 @@
 <template>
-  <div id="app">
-    app[NAV, MAIN]<br>
-    from app: <app-nav></app-nav>
-    <br><hr><br>
-    from app: <div><router-view></router-view></div>
+  <div id="app"> 
+    <app-nav class="col-12"></app-nav>
+    <hr>
+    <transition name="slide" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -26,6 +27,9 @@ export default {
 </script>
 
 <style>
+body{
+  background-color:#ecf0f1;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,6 +37,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  
 }
 
 h1, h2 {
@@ -51,5 +56,35 @@ li {
 
 a {
   color: #42b983;
+}
+
+.slide-enter-active {
+    animation: slide-in 200ms ease-out forwards;
+}
+
+.slide-leave-active {
+    animation: slide-out 200ms ease-out forwards;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
   <div id="posts">
-      posts[MENU, Article]<br>
-      from posts:
       <app-menu :hardContent="hardContent" :articleindex="articleindex"></app-menu>
   </div>
 </template>
@@ -12,7 +10,8 @@ import {mapGetters} from 'vuex';
 export default {
   data(){
     return {
-      articleindex: 0
+      articleindex: 0,
+      mysection: "posts"
     }
   },
   computed: {
