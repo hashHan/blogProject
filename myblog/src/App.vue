@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    app[NAV, MAIN]
-    <app-nav></app-nav>
-    <app-main></app-main>
+    app[NAV, MAIN]<br>
+    from app: <app-nav></app-nav>
+    <br><hr><br>
+    from app: <app-main></app-main>
   </div>
 </template>
 

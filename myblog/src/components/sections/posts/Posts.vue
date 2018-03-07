@@ -1,17 +1,14 @@
 <template>
   <div id="posts">
-      posts[MENU, Article]
-      <app-menu></app-menu>
-      <app-article></app-article>
+      posts[MENU, Article]<br>
+      from posts:<app-menu></app-menu>
   </div>
 </template>
 <script>
-import Article from '../common/Article.vue';
 import Menu from '../common/Menu.vue';
 
 export default {
   components:{
-    appArticle: Article,
     appMenu: Menu
   }
 }

@@ -1,8 +1,10 @@
 <template>
   <div id="main">
-      main[Portfolios, Posts]
-      <app-portfolios></app-portfolios>
-      <app-posts></app-posts>
+      main[Portfolios, Posts]<br>
+      <hr>
+      from main: <app-portfolios></app-portfolios>
+      <br><hr><br>
+      from main: <app-posts></app-posts>
   </div>
 </template>
 <script>
