@@ -1,17 +1,17 @@
 <template>
   <div id="portfolios">
-      portfolios
+      portfolios[MENU, Article]
       <app-menu></app-menu>
-      <app-eachselected></app-eachselected>
+      <app-article></app-article>
   </div>
 </template>
 <script>
-import Eachselected from '../Eachselected.vue';
+import Article from '../Article.vue';
 import Menu from '../Menu.vue';
 
 export default {
   components:{
-    appEachselected: Eachselected,
+    appArticle: Article,
     appMenu: Menu
   }
 }

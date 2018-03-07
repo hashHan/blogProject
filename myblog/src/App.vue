@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    app
+    app[NAV, MAIN]
     <app-nav></app-nav>
     <app-main></app-main>
   </div>

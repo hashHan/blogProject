@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-      main
+      main[Portfolios, Posts]
       <app-portfolios></app-portfolios>
       <app-posts></app-posts>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-      nav
+      nav[CV, PORTFOLIO, POST, HOME]
   </div>
 </template>
 <script>
