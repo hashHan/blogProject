@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import Article from '../Article.vue';
-import Menu from '../Menu.vue';
+import Article from '../common/Article.vue';
+import Menu from '../common/Menu.vue';
 
 export default {
   components:{

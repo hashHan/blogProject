@@ -3,28 +3,24 @@
       article - show each article.
       <article>
         <div class="title">
-            {{ hardContent.title }}
+            {{ hardContent[0].title }}
         </div>
         <div class="date">
-            {{ hardContent.date }}
+            {{ hardContent[0].date }}
         </div>
         <div class="body">
-            {{ hardContent.body }}
+            {{ hardContent[0].body }}
         </div>
       </article>
   </div>
 </template>
 <script>
+import portfolios from '../../../data/portfolios';
+
 export default {
   data(){
     return {
-      hardContent:
-        { 
-          number:1,
-          date: 'date1',
-          title: 'title1',
-          body: 'body1'
-        }
+      hardContent: portfolios
     }
   }
 }
