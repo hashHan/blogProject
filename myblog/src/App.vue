@@ -1,6 +1,6 @@
 <template>
-  <div id="app"> 
-    <app-nav class="col-12"></app-nav>
+  <div id="app" class="container" style="max-width: 800px"> 
+    <app-nav></app-nav>
     <hr>
     <transition name="slide" mode="out-in">
       <router-view></router-view>
@@ -87,4 +87,5 @@ a {
         opacity: 0;
     }
 }
+
 </style>
