@@ -3,19 +3,19 @@
     app[NAV, MAIN]<br>
     from app: <app-nav></app-nav>
     <br><hr><br>
-    from app: <app-main></app-main>
+    from app: <div><router-view></router-view></div>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav.vue';
-import Main from './components/Main.vue';
+import Main from './components/Main.vue';//neccessary for routing
 
 export default {
   name: 'app',
   data () {
     return {
-      //msg: 'Welcome to Your Vue.js App'
+      //
     }
   },
   components:{
