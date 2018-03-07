@@ -28,14 +28,13 @@
   </div>
 </template>
 <script>
-import portfolios from '../../../data/portfolios';
 import myArticle from './Article.vue';
 
 export default {
+  props: ['hardContent', 'articleindex'],
   data(){
     return {
-      hardContent: portfolios,
-      articleindex: 0
+
     }
   },
   computed:{
