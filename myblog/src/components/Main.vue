@@ -1,18 +1,21 @@
 <template>
   <div id="main">
-      <app-portfolios></app-portfolios>
+      main page
+      <!-- <app-portfolios></app-portfolios> -->
   </div>
 </template>
 <script>
-import Portfolios from './sections/Portfolios/Portfolios.vue';
-import Posts from './sections/Posts/Posts.vue';
+// import Portfolios from './sections/Portfolios/Portfolios.vue';
+// import Posts from './sections/Posts/Posts.vue';
+// import Contact from './sections/Contact.vue';
 
-export default {
-  components:{
-    appPortfolios: Portfolios,
-    appPosts: Posts
-  }
-}
+// export default {
+//   components:{
+//     appPortfolios: Portfolios,
+//     appPosts: Posts,
+//     appContact: Contact
+//   }
+// }
 </script>
 <style>
 

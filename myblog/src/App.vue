@@ -1,16 +1,20 @@
 <template>
-  <div id="app" class="container" style="max-width: 800px"> 
+  <div id="app" class="container-fluid"> 
+    <app-header></app-header>
     <app-nav></app-nav>
-    <hr>
+    <br>
     <transition name="slide" mode="out-in">
       <router-view></router-view>
     </transition>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav.vue';
 import Main from './components/Main.vue';//neccessary for routing
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'app',
@@ -21,14 +25,28 @@ export default {
   },
   components:{
     appNav: Nav,
-    appMain: Main
+    appMain: Main,
+    appHeader: Header,
+    appFooter: Footer
   }
 }
 </script>
 
 <style>
+.text-border{
+    text-shadow:
+    -1px -1px 0 #807f7f,
+    1px -1px 0 #807f7f,
+    -1px 1px 0 #807f7f,
+    1px 1px 0 #807f7f
+}
+
 body{
-  background-color:#ecf0f1;
+  background-color:#dbdedf;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -36,8 +54,11 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  
+  margin-top: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 h1, h2 {

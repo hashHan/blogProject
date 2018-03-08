@@ -6,7 +6,14 @@
           <h5 class="mb-0">
             <button class="btn btn-link" data-toggle="collapse" :data-target="'#collapse'+ mysection + each.number" 
                     aria-expanded="true" :aria-controls="'#collapse'+mysection+each.number">
-                      #{{ each.number}}. {{ each.title }} <span>{{ each.date }}</span>
+              <div class="row justify-content-between">
+                  <div class="col col-auto d-none d-md-block">
+                      #{{ each.number}} / {{ each.date }}
+                  </div>
+                  <div class="col">
+                      {{ each.title }}
+                  </div>
+              </div>     
             </button>
           </h5>
         </div>
@@ -14,7 +21,7 @@
         <div :id="'collapse'+ mysection + each.number" class="collapse show" 
               :aria-labelledby="'heading' + mysection + each.number" data-parent="#accordion">
           <div class="card-body">
-            {{ each.body}}
+            <span v-html="each.body"></span>
           </div>
         </div>
       </div>
