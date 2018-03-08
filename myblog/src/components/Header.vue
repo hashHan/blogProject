@@ -1,6 +1,7 @@
 <template>
     <header class="container-fluid masthead bg-picture text-border text-white text-center">
-        <div class=" text-white ">
+        <div class="container text-container">
+          <div class="text-container2">
             <img class="img-fluid mb-5 d-block mx-auto" src="#" alt="">
             <h1 class="text-uppercase mb-0">HAESEONG HAN</h1>
             <hr class="star-light">
@@ -18,7 +19,8 @@
                     <i class="fab fa-git-square fa-3x"></i>             
               </li>   
             </ul>
-            <h2 class="font-weight-light mb-0">Front-End Web Developer</h2>
+            <h2 class="mb-0">Front-End Web Developer</h2>
+          </div>
         </div>
     </header>
 </template>
@@ -71,8 +73,7 @@ header.masthead h2 {
   }
 }
 
-hr.star-light,
-hr.star-dark {
+hr.star-light {
   max-width: 15rem;
   padding: 0;
   text-align: center;
@@ -80,10 +81,6 @@ hr.star-dark {
   border-top: solid 0.25rem;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-}
-
-
-hr.star-light {
   border-color: #fff;
 }
 
@@ -92,14 +89,6 @@ hr.star-light:after {
   background-color: #18BC9C;
 }
 
-hr.star-dark {
-  border-color: #2C3E50;
-}
-
-hr.star-dark:after {
-  color: #2C3E50;
-  background-color: white;
-}
 
 
 </style>

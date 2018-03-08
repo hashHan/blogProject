@@ -15,11 +15,12 @@
                 </a>
               </li>
             </ul>
-            <br>
-            <p class="copyright text-muted">Copyright &copy; Haeseong Han</p>
           </div>
         </div>
       </div>
+      <div class="container copyright py-4 text-center text-muted">
+          <p>Copyright &copy; Haeseong Han</p>
+    </div>
     </footer>
 </template>
 <script>

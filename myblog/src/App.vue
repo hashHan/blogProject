@@ -35,14 +35,14 @@ export default {
 <style>
 .text-border{
     text-shadow:
-    -1px -1px 0 #807f7f,
-    1px -1px 0 #807f7f,
-    -1px 1px 0 #807f7f,
-    1px 1px 0 #807f7f
+    -1px -1px 0 #202020,
+    1px -1px 0 #202020,
+    -1px 1px 0 #202020,
+    2px 2px 0 #202020
 }
 
 body{
-  background-color:#dbdedf;
+  background-color:#ffffff;
   padding-right: 0px;
   padding-left: 0px;
   margin-right: 0px;
