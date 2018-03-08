@@ -4,6 +4,20 @@
             <img class="img-fluid mb-5 d-block mx-auto" src="#" alt="">
             <h1 class="text-uppercase mb-0">HAESEONG HAN</h1>
             <hr class="star-light">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">                
+                    <i class="fab fa-js fa-3x"></i>             
+              </li>
+              <li class="list-inline-item">                
+                    <i class="fab fa-python fa-3x"></i>             
+              </li>
+              <li class="list-inline-item">                               
+                    <i class="fab fa-vuejs fa-3x"></i>    
+              </li>
+              <li class="list-inline-item">                
+                    <i class="fab fa-git-square fa-3x"></i>             
+              </li>   
+            </ul>
             <h2 class="font-weight-light mb-0">Front-End Web Developer</h2>
         </div>
     </header>

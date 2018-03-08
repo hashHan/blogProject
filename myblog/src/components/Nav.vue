@@ -3,9 +3,17 @@
       <div class="container-fluid">
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
            style="padding-left:5px;">HAESEONG HAN</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase rounded  text-white text-border" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class=""></i>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase rounded  text-white text-border" 
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <span class="d-none d-sm-block">Menu</span>
+            </li>
+            <li class="list-inline-item d-block d-sm-none">
+              <i class="fas fa-bars fa-1x"></i>
+            </li>
+          </ul>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -39,7 +47,6 @@ export default {
 }
 
 #mainNav .navbar-nav {
-  margin-top: 1rem;
   letter-spacing: 0.0625rem;
 }
 
@@ -59,10 +66,7 @@ export default {
   color: #18BC9C;
 }
 
-#mainNav .navbar-toggler {
-  font-size: 80%;
-  padding: 0.8rem;
-}
+
 
 @media (min-width: 992px) {
   #mainNav {
@@ -78,9 +82,6 @@ export default {
     -moz-transition: font-size 0.3s;
     transition: font-size 0.3s;
   }
-  #mainNav .navbar-nav {
-    margin-top: 0;
-  }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
     color: #fff;
     background: #18BC9C;
@@ -88,10 +89,6 @@ export default {
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
     color: #fff;
     background: #18BC9C;
-  }
-  #mainNav.navbar-shrink {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.5em;
