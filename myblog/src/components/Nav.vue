@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg fixed-top text-uppercase text-white text-border" id="mainNav">
+    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top text-uppercase text-white text-border">
       <div class="container-fluid">
         <a class="navbar-brand js-scroll-trigger" href="#page-top"
            style="padding-left:5px;">HAESEONG HAN</a>
@@ -21,7 +21,7 @@
               <router-link to="#" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a></router-link>
               <router-link to="/PortfolioGrid" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
               <router-link to="/posts" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">POST</a></router-link>
-              <router-link to="/contact" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
+              <router-link :to="link" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
           </ul>
         </div>
       </div>
@@ -30,8 +30,22 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+        //
+    }
+  },
+  computed: {
+    link() {//this solves the problem that an event is not occured in the same hashtag state;
+        if(this.$route.hash=='#contactinfo'){
+            return { name: 'home', hash: '#socialicon'};
+        }else{
+          return { name: 'home', hash: '#contactinfo'};
+        }
+      }
+  }
 }
+
 </script>
 <style>
 #mainNav {

@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div id="posts">
-        <app-menu :hardContent="hardContent" :articleindex="articleindex"></app-menu>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -18,9 +15,9 @@
                 <span v-html="each.body"></span>
               </h3>
             </a>
-            
+            <hr>
           </div>
-          <hr>
+          
           <!-- Pager -->
           <div class="clearfix">
             <a class="btn btn-link float-right" href="#">Older Posts &rarr;</a>

@@ -2,8 +2,15 @@
   <div id="portfolio-modal">
     <div v-for="(each, index) in hardContent" :key="index">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="'#'+mysection+each.number">
-        {{ each.title }}
+      <button type="button" class="btn btn-light" data-toggle="modal" :data-target="'#'+mysection+each.number">
+        <div class="row justify-content-md-center">
+          <div class="col">
+             <img src="../../../assets/logo.png" alt="buttonimage">
+          </div>
+          <div class="col align-self-center">   
+             <h5>{{ each.title }}</h5>
+          </div>
+        </div>
       </button>
 
       <!-- Modal -->

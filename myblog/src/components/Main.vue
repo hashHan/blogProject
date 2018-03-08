@@ -1,21 +1,13 @@
 <template>
   <div id="main">
       main page
-      <!-- <app-portfolios></app-portfolios> -->
+
+      CV will be added when it's vue.js project is fisnished.
+      <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
   </div>
 </template>
 <script>
-// import Portfolios from './sections/Portfolios/Portfolios.vue';
-// import Posts from './sections/Posts/Posts.vue';
-// import Contact from './sections/Contact.vue';
 
-// export default {
-//   components:{
-//     appPortfolios: Portfolios,
-//     appPosts: Posts,
-//     appContact: Contact
-//   }
-// }
 </script>
 <style>
 

@@ -1,8 +1,13 @@
 <template>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
+    <footer ref="myfooterref" id="myfooter">
+      <div class="container-fluid">
+        <div class="row justify-content-md-left">
+          <div id="contactinfo" class="col-md-4 mb-4 mb-lg-0">
+            <h4 id="contact-title" class="text-uppercase contact-title mb-lg-5 mb-2">Contact Information</h4>
+            <p class="font-weight-light contact-content mb-lg-3 mb-1">haeseong.han@gmail.com</p>
+            <p class="font-weight-light contact-content mb-0">https://hashhan.github.io</p>
+          </div>
+          <div id="socialicon" class="col-md-4 mb-5 mb-lg-0">
             <ul class="list-inline text-center">
               <li class="list-inline-item">
                 <a href="#">                  
@@ -29,8 +34,18 @@ export default {
 }
 </script>
 <style scoped>
+.contact-content{
+  font-family: 'Passion One', sans-serif;
+  color: #2b7755;
+  font-size: 1.2em;
+}
+.contact-title{
+  font-family: 'Teko', cursive;
+  color: #42b983;
+}
 footer {
   padding: 50px 0 65px;
+  background: linear-gradient(white, rgb(209, 208, 208)) ;
 }
 
 .list-inline {
