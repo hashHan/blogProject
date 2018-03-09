@@ -6,6 +6,5 @@ export const routes = [
     { path: '/', name:'home', component: Main },
     { path: '/posts', component: Posts },
     { path: '/PortfolioGrid', name: 'portfolio', component: PortfolioGrid },
-    {path: '/redirect-me', redirect: {name: 'home'}},
     {path: '*', redirect: '/'}
 ];

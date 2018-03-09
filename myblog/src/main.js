@@ -5,6 +5,8 @@ import App from './App.vue';
 import { routes } from './routes';
 import store from './store/store';
 
+import './style.scss';
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -15,14 +17,10 @@ const router = new VueRouter({
       return savedPosition;
     }
     if (to.hash) {
-      if(from.hash===to.hash){
-        return {x: 0, y: 700};
-      }else{
         return {selector: to.hash };
       }
        return {x: 0, y: 0};
     }
-  }
 })
 
 new Vue({
