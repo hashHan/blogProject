@@ -1,6 +1,4 @@
-# myblog
-
-> A Vue.js project
+# My Blog with Vue.js2 
 
 ## Build Setup
 

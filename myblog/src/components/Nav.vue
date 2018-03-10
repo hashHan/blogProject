@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
               <router-link to="/" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">Home</a></router-link>
-              <router-link to="#" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a></router-link>
+              <li class="nav-item mx-0 mx-lg-1"><a :href="CVurl" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a></li>
               <router-link to="/PortfolioGrid" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
               <router-link to="/posts" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">POST</a></router-link>
               <router-link :to="link" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
@@ -32,7 +32,7 @@
 export default {
   data(){
     return{
-        //
+        CVurl: "https://cvhaeseong.firebaseapp.com/"
     }
   },
   computed: {
