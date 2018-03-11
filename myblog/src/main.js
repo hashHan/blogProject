@@ -5,7 +5,6 @@ import App from './App.vue';
 import { routes } from './routes';
 import store from './store/store';
 
-import './style.scss';
 
 Vue.use(VueRouter);
 

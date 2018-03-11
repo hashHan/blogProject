@@ -5,7 +5,7 @@
       <button type="button" class="btn btn-light portfolio-button" data-toggle="modal" :data-target="'#'+mysection+each.number">
         <div class="row justify-content-left">
           <div class="col-5">
-             <img class="img-fluid" :src="each.body.img" alt="thumbnail image">
+             <img class="img-fluid" :src="imagearray[index]" alt="thumbnail image">
           </div>
           <div class="col-5 auto mt-4 button-text">   
              <p>{{ each.title }}</p>
@@ -25,7 +25,14 @@
               </button>
             </div>
             <div class="modal-body">
-              <app-portfoliobody :body="each.body"></app-portfoliobody>
+              <app-portfoliobody :body="each.body">
+                <figure slot="figurespace" class="figure">
+                  <img :src="imagearray[index]" class="figure-img img-fluid rounded" alt="figure of this portfolio">
+                  <figcaption class="figure-caption text-right">
+                      <a :href="each.body.link">LINK</a>
+                  </figcaption>
+                </figure>
+              </app-portfoliobody>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -37,19 +44,26 @@
   </div>
 </template>
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters} from 'vuex'
 import portfoliobody from './portfolio/portfoliobody.vue'
+import CVimage from '../../../assets/CV.jpg'
+import BLOGimage from '../../../assets/BLOG.jpg'
 
 export default {
   data(){
     return {
-      mysection: "portfolios"
+      mysection: "portfolios",
+      imagearray: [CVimage, BLOGimage]
+      
     }
   },
   computed: {
        ...mapGetters({
             hardContent: 'getportfolios' //getter
        })
+  },
+  methods:{
+    
   },
   components:{
     appPortfoliobody: portfoliobody

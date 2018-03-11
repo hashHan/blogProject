@@ -1,12 +1,9 @@
 <template>
     <!-- Modal body -->
     <div class="container">
-        <figure class="figure">
-            <img :src="body.img" class="figure-img img-fluid rounded" alt="figure of this portfolio">
-            <figcaption class="figure-caption text-right">
-                <a :href="body.link">LINK</a>
-            </figcaption>
-        </figure>
+        <slot name="figurespace">    
+          figure space
+        </slot>
         <div class="mb-5">
             <h4>SKILLS</h4>
             <ul class="list-group">
@@ -33,9 +30,15 @@ export default {
       
     }
   },
+  methods:{
+    //   loadImg: function (path) {
+    //      return require(path);
+    //   }
+  },
   computed: {
       
   },
+
   components:{
   
   }

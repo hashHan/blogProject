@@ -11,7 +11,7 @@ export default [
     date: "11/03/2018",
     title:"CV page based on Vue.js2",
     body: { 
-            img: "/src/assets/portfolio/CV.jpg",
+            img: "static/CV.jpg",
             link: "https://cvhaeseong.firebaseapp.com/",
             skills: [
                 "Vue.js2: VUEX, VUE-ROUTER",

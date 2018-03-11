@@ -22,7 +22,7 @@
           
           <!-- Pager -->
           <div class="clearfix">
-            <a class="btn btn-link float-right" href="#">Older Posts &rarr;</a>
+            <a class="btn btn-link float-right" href="/">HOME</a>
           </div>
         </div>
       </div>

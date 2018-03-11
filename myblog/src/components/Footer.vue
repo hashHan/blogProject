@@ -5,17 +5,17 @@
           <div id="contactinfo" class="col-md-4 mb-4 mb-lg-0">
             <h4 id="contact-title" class="text-uppercase contact-title mb-lg-5 mb-2">Contact Information</h4>
             <p class="font-weight-light contact-content mb-lg-3 mb-1">haeseong.han@gmail.com</p>
-            <p class="font-weight-light contact-content mb-0">https://github.com/hashHan</p>
+            <p class="font-weight-light contact-content mb-0"><a href="https://hashhan.github.io/">https://hashhan.github.io/</a></p>
           </div>
           <div id="socialicon" class="col-md-4 mb-5 mb-lg-0">
             <ul class="list-inline text-center">
               <li class="list-inline-item">
-                <a href="#">                  
+                <a href="https://www.linkedin.com/in/hashHan/">                  
                     <i class="fab fa-linkedin fa-3x"></i>                 
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">                
+                <a href="https://hashhan.github.io/">                
                     <i class="fab fa-github fa-3x"></i>             
                 </a>
               </li>

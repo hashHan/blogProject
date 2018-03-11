@@ -1,5 +1,14 @@
 # My Blog with Vue.js2 
 
+This blog is deployed on https://bloghaeseong.firebaseapp.com/
+
+Please use my vue templates for your own blog.
+You can read my commit to what I've done.
+
+Thank you for visiting.
+
+MIT LICENSE
+
 ## Build Setup
 
 ``` bash
