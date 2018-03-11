@@ -5,15 +5,17 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div :id="mysection+each.number" class="post-preview" 
                 v-for="(each, index) in hardContent" :key="index">
-            <a href="#">
-              <h2 class="post-title">
+            <a>
+              <h2 class="post-title" @click="selectThis(each, index)">
                 {{ each.title }}
               </h2>
               <p class="post-date">
                 {{ each.date }}
-              <h3 class="post-contents">
-                <span v-html="each.body"></span>
-              </h3>
+              <div v-show="showIndex === index" class="post-contents">
+                <!-- {{ each.body }} -->
+                <app-post :body="each.body"></app-post>
+                <!-- <span v-html="each.body"></span> -->
+              </div>
             </a>
             <hr>
           </div>
@@ -30,11 +32,14 @@
 </template>
 <script>
 import {mapGetters} from 'vuex';
+import post1 from './post/post1.vue';
+
 
 export default {
   data(){
     return {
-      mysection: "posts"
+      mysection: "posts",
+      showIndex: 0
     }
   },
   computed: {
@@ -42,12 +47,17 @@ export default {
             hardContent: 'getposts' //getter
        })
   },
+  methods: {
+    selectThis(val, index) {
+      this.showIndex = index;
+    }
+  },
   components:{
-    
+    appPost: post1
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 a {
    color: black
 }
