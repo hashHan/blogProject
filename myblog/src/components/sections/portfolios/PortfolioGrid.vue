@@ -1,14 +1,14 @@
 <template>
-  <div id="portfolio-modal">
+  <div name="portfolio-modal">
     <div v-for="(each, index) in hardContent" :key="index">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light" data-toggle="modal" :data-target="'#'+mysection+each.number">
-        <div class="row justify-content-md-center">
-          <div class="col">
-             <img src="../../../assets/logo.png" alt="buttonimage">
+      <button type="button" class="btn btn-light portfolio-button" data-toggle="modal" :data-target="'#'+mysection+each.number">
+        <div class="row justify-content-left">
+          <div class="col-5">
+             <img class="img-fluid" :src="each.body.img" alt="thumbnail image">
           </div>
-          <div class="col align-self-center">   
-             <h5>{{ each.title }}</h5>
+          <div class="col-5 auto mt-4 button-text">   
+             <p>{{ each.title }}</p>
           </div>
         </div>
       </button>
@@ -25,7 +25,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <span v-html="each.body"></span>
+              <app-portfoliobody :body="each.body"></app-portfoliobody>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -38,6 +38,7 @@
 </template>
 <script>
 import {mapGetters} from 'vuex';
+import portfoliobody from './portfolio/portfoliobody.vue'
 
 export default {
   data(){
@@ -51,10 +52,21 @@ export default {
        })
   },
   components:{
-  
+    appPortfoliobody: portfoliobody
   }
 }
 </script>
-<style>
+<style lang="scss">
+$smallsize: 500px;
+
+.portfolio-button{
+  width: 80%;  
+  
+}
+.button-text{
+    @media screen and (max-width:$smallsize){
+      font-size: 0.6em;
+    }
+  }
 
 </style>

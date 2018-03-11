@@ -3,9 +3,9 @@
         <div class="container text-container">
           <div class="text-container2">
             <img class="img-fluid mb-5 d-block mx-auto" src="#" alt="">
-            <h1 class="text-uppercase mb-0">HAESEONG HAN</h1>
+            <h1 class="text-uppercase mb-0 d-none d-sm-block">HAESEONG HAN</h1>
             <hr class="star-light">
-            <ul class="list-inline text-center">
+            <ul id="headericons" class="list-inline text-center">
               <li class="list-inline-item">                
                     <i class="fab fa-js fa-3x"></i>             
               </li>
@@ -29,19 +29,32 @@ export default {
   
 }
 </script>
-<style>
+<style lang="scss">
+$smallsize: 500px;
+$override-color : rgb(17, 236, 17);
+
+#headericons{
+  color: $override-color;
+}
 .bg-picture {
     background: url(../assets/background/library-medium.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    @media screen and (max-width: $smallsize){
+
+    }
 }
 
 
 header.masthead {
   padding-top: 20rem;
   padding-bottom: 6rem;
+  @media screen and (max-width: $smallsize){
+      padding-top: 5rem;
+      padding-bottom: 2rem;
+  }
   padding-right: 0px;
   padding-left: 0px;
   margin-right: 0px;
@@ -63,7 +76,7 @@ header.masthead h2 {
   font-family: 'Lato';
 }
 
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
   header.masthead h1 {
     font-size: 4.75em;
     line-height: 4rem;

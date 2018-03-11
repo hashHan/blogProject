@@ -4,9 +4,9 @@
 // title: string,
 // body: string written on html context.
 //
-export default {
-      number: 2,
-      date: 'date2',
-      title: 'title2',
-      body: 'body2'
-}
+// export default {
+//       number: 2,
+//       date: 'date2',
+//       title: 'title2',
+//       body: 'body2'
+// }

@@ -32,7 +32,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+
 .text-border{
     text-shadow:
     -1px -1px 0 #202020,
@@ -47,9 +49,10 @@ body{
   padding-left: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -59,6 +62,7 @@ body{
   padding-left: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  
 }
 
 h1, h2 {

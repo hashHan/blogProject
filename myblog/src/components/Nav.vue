@@ -1,7 +1,7 @@
 <template>
     <nav id="mainNav" class="navbar navbar-expand-lg fixed-top text-uppercase text-white text-border">
       <div class="container-fluid">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"
+        <a class="navbar-brand js-scroll-trigger" href="/"
            style="padding-left:5px;">HAESEONG HAN</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase rounded  text-white text-border" 
                 type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" 
@@ -19,9 +19,9 @@
           <ul class="navbar-nav ml-auto">
               <router-link to="/" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">Home</a></router-link>
               <li class="nav-item mx-0 mx-lg-1"><a :href="CVurl" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a></li>
-              <router-link to="/PortfolioGrid" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
-              <router-link to="/posts" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">POST</a></router-link>
-              <router-link :to="link" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
+              <router-link to="/PortfolioGrid" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
+              <router-link to="/posts" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">POST</a></router-link>
+              <router-link :to="contactlink" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
           </ul>
         </div>
       </div>
@@ -32,28 +32,54 @@
 export default {
   data(){
     return{
-        CVurl: "https://cvhaeseong.firebaseapp.com/"
+        CVurl: "https://cvhaeseong.firebaseapp.com/",
+        //portfoliohash: { name: 'portfolio', hash: '#portfolio-modal'},
+        //posthash:  { name: 'posts', hash: '#postmain'}
     }
   },
   computed: {
-    link() {//this solves the problem that an event is not occured in the same hashtag state;
+    contactlink() {//this solves the problem that an event is not occured in the same hashtag state;
         if(this.$route.hash=='#contactinfo'){
             return { name: 'home', hash: '#socialicon'};
         }else{
           return { name: 'home', hash: '#contactinfo'};
         }
       }
+  },
+  methods: {
+    scroll() {
+        window.scrollTo(0,1000);
+    }
   }
 }
 
 </script>
-<style>
+<style lang="scss">
+$smallsize: 500px;
+$navback-color : rgba(0, 0, 0, 0.4);
+
+@media screen and (max-width: $smallsize){
+    #navbarResponsive{
+      .navbar-nav{
+        background-color: $navback-color;
+        padding-bottom: 50px;
+        text-shadow:
+            0px 0px 0 #202020,
+            0px 0px 0 #202020,
+            0px 0px 0 #202020,
+            0px 0px 0 #202020; 
+      } 
+    } 
+  }
+
+
 #mainNav {
   position: absolute;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-weight: 700;
   background: transparent;
+  
 }
 
 #mainNav .navbar-brand {
