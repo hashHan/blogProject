@@ -46,8 +46,8 @@
 <script>
 import {mapGetters} from 'vuex'
 import portfoliobody from './portfolio/portfoliobody.vue'
-import CVimage from '../../../assets/CV.jpg'
-import BLOGimage from '../../../assets/BLOG.jpg'
+import CVimage from '../../../assets/CVwidth600.jpg'
+import BLOGimage from '../../../assets/BLOGwidth500.jpg'
 
 export default {
   data(){

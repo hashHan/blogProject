@@ -55,10 +55,14 @@ export default {
 
 </script>
 <style lang="scss">
-$smallsize: 500px;
+$xxssize: 500px;
+$xssize: 576px;
+$smsize: 768px;
+$mdsize: 992px;
+$lgsize: 1200px;
 $navback-color : rgba(0, 0, 0, 0.4);
 
-@media screen and (max-width: $smallsize){
+@media screen and (max-width: $smsize){
     #navbarResponsive{
       .navbar-nav{
         background-color: $navback-color;
@@ -108,7 +112,7 @@ $navback-color : rgba(0, 0, 0, 0.4);
 
 
 
-@media (min-width: 992px) {
+@media (min-width: $mdsize) {
   #mainNav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
