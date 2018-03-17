@@ -116,16 +116,7 @@ const actions= {
         localStorage.removeItem('userId')
         router.replace('/signin')
     },
-    // storeUser is not used. 
-    // change it to save posts.
-    storeUser ({commit, state}, userData) { // action-storeUser send userdata to database 
-        if (!state.idToken) {// for authenticated writing
-          return
-        };
-        globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
-          .then(res => console.log(res))
-          .catch(error => console.log(error))
-    },
+
 
     // fetchUser is not used.
     // change this for fetch posts and portfolios

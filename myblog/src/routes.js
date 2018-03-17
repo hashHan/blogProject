@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import store from './store/store'; //for guarding
-
+//import store from './store/store'; //for guarding
+import auth from './store/modules/auth';
 
 import Main from './components/Main.vue';
 import Posts from './components/sections/posts/Posts.vue';
@@ -21,13 +21,13 @@ const routes = [
     { path: '/signin', name: 'signin', component: Signin },
     {
       path: '/admin', name: 'admin', component: Admin,
-      beforeEnter (to, from, next) { //routing guard
-        if (store.state.idToken) {
-          next()
-        } else {
-          next('/signin')
-        }
-      }  
+      // beforeEnter (to, from, next) { //routing guard
+      //   if (auth.state.idToken) {
+      //     next('/admin')
+      //   } else {
+      //     next('/signin')
+      //   }
+      // }  
     },
     {path: '*', redirect: '/'}
 ];
@@ -38,7 +38,8 @@ export default new VueRouter({
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
           return savedPosition;
-        }else if(to.hash) {
+        }
+        if(to.hash) {
             return {selector: to.hash };
         }else{
             return {x: 0, y: 300};

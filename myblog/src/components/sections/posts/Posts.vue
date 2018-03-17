@@ -44,7 +44,7 @@ export default {
   },
   computed: {
        ...mapGetters({
-            hardContent: 'getposts' //getter
+            hardContent: 'getfetchedposts' //getter
        })
   },
   methods: {

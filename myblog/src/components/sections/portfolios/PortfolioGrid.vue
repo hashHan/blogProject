@@ -59,7 +59,7 @@ export default {
   },
   computed: {
        ...mapGetters({
-            hardContent: 'getportfolios' //getter
+            hardContent: 'getfetchedportfolios' //getter
        })
   },
   methods:{

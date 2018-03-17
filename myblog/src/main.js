@@ -8,7 +8,6 @@ import store from './store/store';
 axios.defaults.baseURL = 'https://bloghaeseong.firebaseio.com/'; //FOR database
 
 
-
 new Vue({
   el: '#app',
   router,
