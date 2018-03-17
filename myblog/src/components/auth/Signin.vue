@@ -1,5 +1,9 @@
 <template>
   <div id="signin">
+    <p>Signin is used for my administrative purpose and for demonstration of axios usage.
+      <br>you don't have to sign in. 
+    </p>
+    <p v-if="loginemail">You logined, Your email address: {{ loginemail }}</p>
     <div class="signin-form">
       <form @submit.prevent="onSubmit">
         <div class="input">
@@ -40,6 +44,11 @@ export default {
         };
         console.log(formData);
         this.$store.dispatch('login', {email: formData.email, password: formData.password})
+      }
+    },
+    computed: {
+      loginemail () {
+        return !this.$store.getters.email ? false : this.$store.getters.email
       }
     }
 }

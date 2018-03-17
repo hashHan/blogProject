@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-//import axios from 'axios'
+import axios from 'axios'; //global axios
 
 import App from './App.vue';
 import { routes } from './routes';
@@ -8,7 +8,7 @@ import store from './store/store';
 
 
 Vue.use(VueRouter);
-//axios.defaults.baseURL = 'https://vue-update.firebaseio.com' //FOR NON SIGNUP ACCESS
+axios.defaults.baseURL = 'https://bloghaeseong.firebaseio.com/'; //FOR database
 
 const router = new VueRouter({
   mode: 'history',

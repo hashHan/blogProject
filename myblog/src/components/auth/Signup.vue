@@ -3,6 +3,7 @@
     <p>Signup is used for my administrative purpose and for demonstration of axios usage.
       <br>you don't have to sign up. 
     </p>
+    <p v-if="loginemail">You logined, Your email address: {{ loginemail }}</p>
     <div class="signup-form">
       <form @submit.prevent="onSubmit">
         <div class="input">
@@ -58,6 +59,11 @@ export default {
       };
       console.log(formData);
       this.$store.dispatch('signup', formData);
+    }
+  },
+  computed: {
+    loginemail () {
+      return !this.$store.getters.email ? false : this.$store.getters.email
     }
   }
 }
