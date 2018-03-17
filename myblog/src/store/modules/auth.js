@@ -43,6 +43,11 @@ const actions= {
                     userId: res.data.localId,
                     email: res.data.email
                 });
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000);
+                localStorage.setItem('token', res.data.idToken);
+                localStorage.setItem('userId', res.data.localId);
+                localStorage.setItem('expirationDate', expirationDate);
                 dispatch('setLogoutTimer', res.data.expiresIn);
                 // dispatch('storeUser', authData); // to database
             })
@@ -74,6 +79,11 @@ const actions= {
             })
             .then(res => {
                 console.log(res);
+                const now = new Date()
+                const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000);
+                localStorage.setItem('token', res.data.idToken);
+                localStorage.setItem('userId', res.data.localId);
+                localStorage.setItem('expirationDate', expirationDate);
                 commit('authUser', {
                     token: res.data.idToken,
                     userId: res.data.localId,
@@ -83,7 +93,22 @@ const actions= {
             })
             .catch(error => console.log(error));
     },
-
+    tryAutoLogin ({commit}) {
+        const token = localStorage.getItem('token')
+        if (!token) {
+          return
+        }
+        const expirationDate = localStorage.getItem('expirationDate')
+        const now = new Date()
+        if (now >= expirationDate) {
+          return
+        }
+        const userId = localStorage.getItem('userId')
+        commit('authUser', {
+          token: token,
+          userId: userId
+        })
+    },
     logout ({commit}) {
         commit('clearAuthData')
         localStorage.removeItem('expirationDate')

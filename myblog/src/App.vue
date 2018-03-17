@@ -28,6 +28,9 @@ export default {
     appMain: Main,
     appHeader: Header,
     appFooter: Footer
+  },
+  created () {
+      this.$store.dispatch('tryAutoLogin')
   }
 }
 </script>
