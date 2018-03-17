@@ -32,14 +32,17 @@
               <li class="nav-item mx-0 mx-lg-1"><router-link :to="contactlink">
                 <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
               </li>
-              <li class="nav-item mx-0 mx-lg-1"><router-link to="/signup" @click.native="scroll">
+              <li v-if="!auth" class="nav-item mx-0 mx-lg-1"><router-link to="/signup" @click.native="scroll">
                 <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNUP</a></router-link>
               </li>
-              <li class="nav-item mx-0 mx-lg-1"><router-link to="/signin" @click.native="scroll">
+              <li v-if="!auth" class="nav-item mx-0 mx-lg-1"><router-link to="/signin" @click.native="scroll">
                 <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNIN</a></router-link>
               </li>
               <li v-if="auth" class="nav-item mx-0 mx-lg-1"><router-link to="/admin" @click.native="scroll">
                 <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">ADMIN</a></router-link>
+              </li>
+              <li v-if="auth" class="nav-item mx-0 mx-lg-1">
+                <a @click="onLogout" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">LOGOUT</a>
               </li>
           
           </ul>
@@ -72,6 +75,9 @@ export default {
   methods: {
     scroll() {
         window.scrollTo(0,1000);
+    },
+    onLogout() {
+      this.$store.dispatch('logout');
     }
   }
 }

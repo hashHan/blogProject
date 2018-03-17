@@ -15,8 +15,12 @@ const mutations= {
       state.userId = userData.userId;
       state.email = userData.email;
     },
-    storeUser (state, user) { //save to state
+    storeUser (state, user) { //save to state // do not use, related to fetchUser
         state.user = user;
+    },
+    clearAuthData (state) {
+        state.idToken = null
+        state.userId = null
     }
 };
 
@@ -72,7 +76,14 @@ const actions= {
             })
             .catch(error => console.log(error));
     },
-    
+
+    logout ({commit}) {
+        commit('clearAuthData')
+        localStorage.removeItem('expirationDate')
+        localStorage.removeItem('token')
+        localStorage.removeItem('userId')
+        router.replace('/signin')
+    },
     // storeUser is not used. 
     // change it to save posts.
     storeUser ({commit, state}, userData) { // action-storeUser send userdata to database 
