@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import axios from '../../axios-auth';
 export default {
   data () {
     return {
@@ -56,32 +55,9 @@ export default {
         password: this.password,
         confirmPassword: this.confirmPassword,
         terms: this.terms
-      }
-      console.log(formData)
-      axios.post('/signupNewUser?key=AIzaSyC-fCZS3pHHKDHNo_oh6qSg_BLPH5DTWrc', {
-          email: formData.email,
-          password: formData.password,
-          returnSecureToken: true
-          })
-          .then(res => console.log(res))
-          .catch(function (error) {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('otherError', error.message);
-            }
-            console.log(error.config);
-          });
+      };
+      console.log(formData);
+      this.$store.dispatch('signup', formData);
     }
   }
 }
