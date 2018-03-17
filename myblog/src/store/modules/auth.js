@@ -34,7 +34,7 @@ const actions= {
                     userId: res.data.localId,
                     email: res.data.email
                 });
-                dispatch('storeUser', authData); // to database
+                // dispatch('storeUser', authData); // to database
             })
             .catch(function (error) {
               if (error.response) {
@@ -73,6 +73,8 @@ const actions= {
             .catch(error => console.log(error));
     },
     
+    // storeUser is not used. 
+    // change it to save posts.
     storeUser ({commit, state}, userData) { // action-storeUser send userdata to database 
         if (!state.idToken) {// for authenticated writing
           return
@@ -82,6 +84,8 @@ const actions= {
           .catch(error => console.log(error))
     },
 
+    // fetchUser is not used.
+    // change this for fetch posts and portfolios
     fetchUser ({commit}, email) { //({commit, state}) state is for extract current idToken
         // if (!state.idToken) { // due to database read rules auth != null
         //   return
@@ -90,15 +94,15 @@ const actions= {
         globalAxios.get('/users.json?email='+email)
           .then(res => {
             console.log(res)
-            const user = res.data
-            // const users = []
-            // for (let key in data) {
-            //   const user = data[key]
-            //   user.id = key
-            //   users.push(user)
-            // }
+            const data = res.data
+            const users = []
+            for (let key in data) {
+              const user = data[key]
+              user.id = key
+              users.push(user)
+            }
             console.log(users)
-            commit('storeUser', user) // mutation-storeUser fetch datas to store objects
+            commit('storeUser', users[0]) // mutation-storeUser fetch datas to store objects
           })
           .catch(error => console.log(error))
     }

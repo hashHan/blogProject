@@ -24,6 +24,8 @@
               <router-link :to="contactlink" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
               <router-link to="/signup" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNUP</a></router-link>
               <router-link to="/signin" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNIN</a></router-link>
+              <router-link to="/admin" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">ADMIN</a></router-link>
+          
           </ul>
         </div>
       </div>
