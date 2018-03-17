@@ -17,14 +17,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-              <router-link to="/" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">Home</a></router-link>
-              <li class="nav-item mx-0 mx-lg-1"><a :href="CVurl" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a></li>
-              <router-link to="/PortfolioGrid" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
-              <router-link to="/posts" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">POST</a></router-link>
-              <router-link :to="contactlink" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
-              <router-link to="/signup" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNUP</a></router-link>
-              <router-link to="/signin" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNIN</a></router-link>
-              <router-link to="/admin" @click.native="scroll" tag="li" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">ADMIN</a></router-link>
+              <li class="nav-item mx-0 mx-lg-1"><router-link to="/">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">Home</a></router-link>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <a :href="CVurl" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1"><router-link to="/PortfolioGrid" @click.native="scroll">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1"><router-link to="/posts" @click.native="scroll">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">POST</a></router-link>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1"><router-link :to="contactlink">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CONTACT</a></router-link>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1"><router-link to="/signup" @click.native="scroll">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNUP</a></router-link>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1"><router-link to="/signin" @click.native="scroll">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">SIGNIN</a></router-link>
+              </li>
+              <li v-if="auth" class="nav-item mx-0 mx-lg-1"><router-link to="/admin" @click.native="scroll">
+                <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">ADMIN</a></router-link>
+              </li>
           
           </ul>
         </div>
@@ -48,7 +64,10 @@ export default {
         }else{
           return { name: 'home', hash: '#contactinfo'};
         }
-      }
+    },
+    auth () {
+        return this.$store.getters.isAuthenticated
+    }
   },
   methods: {
     scroll() {
@@ -87,33 +106,25 @@ $navback-color : rgba(0, 0, 0, 0.4);
   padding-bottom: 1rem;
   font-weight: 700;
   background: transparent;
-  
+  .navbar-brand {
+    color: #fff;
+  }
+  .navbar-nav {
+    letter-spacing: 0.0625rem;
+    li.nav-item a.nav-link {
+      color: #fff;
+      &:hover {
+        color: #18BC9C;
+      }
+      &:active, &:focus{
+        color: #fff;
+      }
+      .active{
+        color: #18BC9C;
+      }
+    }
+  }
 }
-
-#mainNav .navbar-brand {
-  color: #fff;
-}
-
-#mainNav .navbar-nav {
-  letter-spacing: 0.0625rem;
-}
-
-#mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
-}
-
-#mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #18BC9C;
-}
-
-#mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-  color: #fff;
-}
-
-#mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #18BC9C;
-}
-
 
 
 @media (min-width: $mdsize) {
@@ -123,23 +134,25 @@ $navback-color : rgba(0, 0, 0, 0.4);
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
-  }
-  #mainNav .navbar-brand {
-    font-size: 2em;
-    -webkit-transition: font-size 0.3s;
-    -moz-transition: font-size 0.3s;
-    transition: font-size 0.3s;
-  }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    color: #fff;
-    background: #18BC9C;
-  }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    color: #fff;
-    background: #18BC9C;
-  }
-  #mainNav.navbar-shrink .navbar-brand {
-    font-size: 1.5em;
+    .navbar-brand {
+      font-size: 2em;
+      -webkit-transition: font-size 0.3s;
+      -moz-transition: font-size 0.3s;
+      transition: font-size 0.3s;
+    }
+    .navbar-nav {
+      > li.nav-item > a.nav-link.active {
+        color: #fff;
+        background: #18BC9C;
+        &:active, &:focus, &:hover{
+          color: #fff;
+          background: #18BC9C;
+        }
+      }
+    }
+    .navbar-shrink .navbar-brand {
+      font-size: 1.5em;
+    }
   }
 }
 

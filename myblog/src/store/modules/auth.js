@@ -111,6 +111,9 @@ const actions= {
 const getters= {
     email (state) {
       return state.email
+    },
+    isAuthenticated (state) {
+        return state.idToken !== null
     }
 };
 
