@@ -54,6 +54,9 @@ export default {
   },
   components:{
     appPost: post1
+  },
+  created () {
+      this.$store.dispatch('fetchAllPosts')
   }
 }
 </script>

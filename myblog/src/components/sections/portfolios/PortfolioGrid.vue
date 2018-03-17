@@ -41,6 +41,7 @@
         </div>
       </div>
     </div>
+    <!-- <div @click="showhardcontent">showhardcontent</div> -->
   </div>
 </template>
 <script>
@@ -63,10 +64,15 @@ export default {
        })
   },
   methods:{
-    
+    // showhardcontent(){
+    //   console.log(this.hardContent);
+    // }
   },
   components:{
     appPortfoliobody: portfoliobody
+  },
+  created () {
+      this.$store.dispatch('fetchAllPortfolios')
   }
 }
 </script>

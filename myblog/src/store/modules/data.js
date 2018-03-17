@@ -1,14 +1,14 @@
-import portfolios from '../../data/portfolios';
-import posts from '../../data/posts';
+//import portfolios from '../../data/portfolios'; //local storage
+//import posts from '../../data/posts';
 
 import axios from '../../axios-auth' // for authenication
 import globalAxios from 'axios' // for database
 
-import auth from './auth'
+import auth from './auth'// for authentication
 
 const state = {
-    portfolios,
-    posts,
+    //portfolios, //local storage
+    //posts,
     fetchedportfolios: [],
     fetchedposts: []
 };
@@ -102,10 +102,10 @@ const getters = {
         return state.posts;
     },
     getfetchedportfolios: state => {
-        return state.portfolios;
+        return state.fetchedportfolios;
     },
     getfetchedposts: state => {
-        return state.posts;
+        return state.fetchedposts;
     }
 };
 
