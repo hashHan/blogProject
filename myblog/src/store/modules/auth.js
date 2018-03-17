@@ -9,10 +9,10 @@ const state = {
 };
 
 const mutations= {
-    // authUser (state, userData) {
-    //   state.idToken = userData.token
-    //   state.userId = userData.userId
-    // },
+    authUser (state, userData) {
+      state.idToken = userData.token
+      state.userId = userData.userId
+    }
     // storeUser (state, user) {
     //   state.user = user
     // }
@@ -25,7 +25,13 @@ const actions= {
             password: authData.password,
             returnSecureToken: true
             })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res);
+                commit('authUser', {
+                    token: res.data.idToken,
+                    userId: res.data.localId
+                })
+            })
             .catch(function (error) {
               if (error.response) {
                 // The request was made and the server responded with a status code
@@ -51,7 +57,13 @@ const actions= {
             password: authData.password,
             returnSecureToken: true
             })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res);
+                commit('authUser', {
+                    token: res.data.idToken,
+                    userId: res.data.localId
+                })
+            })
             .catch(error => console.log(error));
     }
     
