@@ -122,10 +122,6 @@ hr.star-light {
   border-color: #fff;
 }
 
-hr.star-light:after {
-  color: #fff;
-  background-color: #18BC9C;
-}
 
 
 

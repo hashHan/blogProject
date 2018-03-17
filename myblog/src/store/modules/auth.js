@@ -25,6 +25,11 @@ const mutations= {
 };
 
 const actions= {
+    setLogoutTimer ({commit}, expirationTime) {
+        setTimeout(() => {
+          commit('clearAuthData')
+        }, expirationTime * 1000)
+    },
     signup ({commit, dispatch}, authData) {
         axios.post('/signupNewUser?key=AIzaSyC-fCZS3pHHKDHNo_oh6qSg_BLPH5DTWrc', {// to authentication
             email: authData.email,
@@ -38,6 +43,7 @@ const actions= {
                     userId: res.data.localId,
                     email: res.data.email
                 });
+                dispatch('setLogoutTimer', res.data.expiresIn);
                 // dispatch('storeUser', authData); // to database
             })
             .catch(function (error) {
@@ -60,7 +66,7 @@ const actions= {
             });
     },
 
-    login ({commit}, authData) {
+    login ({commit, dispatch}, authData) {
         axios.post('/verifyPassword?key=AIzaSyC-fCZS3pHHKDHNo_oh6qSg_BLPH5DTWrc', {
             email: authData.email,
             password: authData.password,
@@ -72,7 +78,8 @@ const actions= {
                     token: res.data.idToken,
                     userId: res.data.localId,
                     email: res.data.email
-                })
+                });
+                dispatch('setLogoutTimer', res.data.expiresIn);
             })
             .catch(error => console.log(error));
     },

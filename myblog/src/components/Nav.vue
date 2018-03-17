@@ -88,10 +88,11 @@ $xxssize: 500px;
 $xssize: 576px;
 $smsize: 768px;
 $mdsize: 992px;
+$mmdsize: calc($mdsize - 1px);
 $lgsize: 1200px;
 $navback-color : rgba(0, 0, 0, 0.4);
 
-@media screen and (max-width: $smsize){
+@media screen and (max-width: $mdsize){
     #navbarResponsive{
       .navbar-nav{
         background-color: $navback-color;
@@ -103,9 +104,12 @@ $navback-color : rgba(0, 0, 0, 0.4);
             0px 0px 0 #202020; 
       } 
     } 
+}
+@media screen and (min-width: $mdsize ) and (max-width: $lgsize){
+  .navbar-nav{
+    font-size: 0.9em;
   }
-
-
+}
 #mainNav {
   position: absolute;
   padding-top: 1rem;
