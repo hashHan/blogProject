@@ -6,22 +6,26 @@
     <p v-if="loginemail">You logined, Your email address: {{ loginemail }}</p>
     <div class="signin-form">
       <form @submit.prevent="onSubmit">
-        <div class="input">
+        <div class="input" :class="{invalid: $v.email.$invalid}">
           <label for="email">Mail</label>
           <input
                   type="email"
                   id="email"
+                  @blur="$v.email.$touch()"
                   v-model="email">
+          <p class="caution" v-if="!$v.email.email">Please provide a valid email address.</p>
         </div>
-        <div class="input">
+        <div class="input" :class="{invalid: $v.password.$invalid}">
           <label for="password">Password</label>
           <input
                   type="password"
                   id="password"
+                  @blur="$v.password.$touch()"
                   v-model="password">
+          <p class="caution" v-if="!$v.password.minLen">A password must be at least 6 characters</p>
         </div>
         <div class="submit">
-          <button type="submit">Submit</button>
+          <button type="submit" :disabled="$v.$invalid">Submit</button>
         </div>
       </form>
     </div>
@@ -29,11 +33,23 @@
 </template>
 
 <script>
+import { required, email, minLength, sameAs } from 'vuelidate/lib/validators'
+
 export default {
     data () {
       return {
         email: '',
         password: ''
+      }
+    },
+    validations: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+        minLen: minLength(6)
       }
     },
     methods: {

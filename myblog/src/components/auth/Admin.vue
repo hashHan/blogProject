@@ -13,15 +13,15 @@
     </div>
 </template>
 <script>
-import axios from 'axios';
-import {mapGetters} from 'vuex';
+//import axios from 'axios';
+//import {mapGetters} from 'vuex';
 export default {
  
    computed: {
-       ...mapGetters({
-            posts: 'getposts', //getter
-            portfolios: 'getportfolios'
-       })
+      //  ...mapGetters({
+      //       posts: 'getposts', //getter
+      //       portfolios: 'getportfolios'
+      //  })
    },
    methods: {
        fetchAllPortfolios(){

@@ -6,33 +6,44 @@
     <p v-if="loginemail">You logined, Your email address: {{ loginemail }}</p>
     <div class="signup-form">
       <form @submit.prevent="onSubmit">
-        <div class="input">
-          <label for="email">Mail(x@x.x)</label>
+        <div class="input" :class="{invalid: $v.email.$invalid}">
+          <label for="email">Mail</label>
           <input
                   type="email"
                   id="email"
+                  @blur="$v.email.$touch()"
                   v-model="email">
+          <p class="caution" v-if="!$v.email.email">Please provide a valid email address.</p>
         </div>
-        <div class="input">
-          <label for="password">Password(at least 6)</label>
+        <div class="input" :class="{invalid: $v.password.$invalid}">
+          <label for="password">Password</label>
           <input
                   type="password"
                   id="password"
+                  @blur="$v.password.$touch()"
                   v-model="password">
+          <p class="caution" v-if="!$v.password.minLen">A password must be at least 6 characters</p>
         </div>
-        <div class="input">
+        <div class="input" :class="{invalid: $v.confirmPassword.$invalid}">
           <label for="confirm-password">Confirm Password</label>
           <input
                   type="password"
                   id="confirm-password"
+                  @blur="$v.confirmPassword.$touch()"
                   v-model="confirmPassword">
+          <p class="caution" v-if="$v.confirmPassword.$invalid">Please confirm your password</p>
         </div>
-        <div class="input inline">
-          <input type="checkbox" id="terms" v-model="terms">
+        <div class="input inline" :class="{invalid: $v.terms.$invalid}">
+          <input 
+                  type="checkbox" 
+                  id="terms" 
+                  @change="$v.terms.$touch()"
+                  v-model="terms">
           <label for="terms">Accept Terms of Use</label>
+           <p class="caution" v-if="$v.terms.$invalid">Please check Terms of Use</p>
         </div>
         <div class="submit">
-          <button type="submit">Submit</button>
+          <button type="submit" :disabled="$v.$invalid">Submit</button>
         </div>
       </form>
     </div>
@@ -40,6 +51,8 @@
 </template>
 
 <script>
+import { required, email, minLength, sameAs } from 'vuelidate/lib/validators'
+
 export default {
   data () {
     return {
@@ -48,6 +61,24 @@ export default {
       confirmPassword: '',
       terms: false
     }
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      minLen: minLength(6)
+    },
+    confirmPassword: {
+      sameAs: sameAs(vm => {
+        return vm.password
+      })
+    },
+    terms: {
+      required
+    },
   },
   methods: {
     onSubmit () {
@@ -69,7 +100,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .input.invalid {
+    p {
+       color: red;
+    }
+  }
+
   .signup-form {
     width: 400px;
     margin: 30px auto;
