@@ -1,4 +1,4 @@
-//import portfolios from '../../data/portfolios'; //local storage
+//import portfolios from './data/portfolios'; //local storage
 //import posts from '../../data/posts';
 
 import axios from '../../axios-auth' // for authenication
@@ -7,8 +7,8 @@ import globalAxios from 'axios' // for database
 import auth from './auth'// for authentication
 
 const state = {
-    //portfolios, //local storage
-    //posts,
+    //portfolios,
+    //posts,  //local storage
     fetchedportfolios: [],
     fetchedposts: []
 };
@@ -86,11 +86,11 @@ const actions = {
           return
         };
         console.log(state.portfolios);
-        for (let portfolio of state.portfolios){ 
-            globalAxios.post('/portfolios.json' + '?auth=' + auth.state.idToken, portfolio)
+        //for (let portfolio of state.portfolios){ 
+            globalAxios.post('/portfolios.json' + '?auth=' + auth.state.idToken, state.portfolios.portfolio)
             .then(res => console.log(res))
             .catch(error => console.log(error))
-        }
+        //}
     }
 };
 

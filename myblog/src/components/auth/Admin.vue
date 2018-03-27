@@ -2,7 +2,7 @@
     <div id="admin" class="container">
         <p>This page is used for writing post and portfolio and save them to database</p>
          <button class="btn btn-primary">upload All Posts(DO NOT USE)</button>
-         <button class="btn btn-primary">upload All Portfolios(DO NOT USE)</button>
+         <button class="btn btn-primary" @click="uploadAllPortfolios">upload All Portfolios(DO NOT USE)</button>
         <br>
         
         <br>

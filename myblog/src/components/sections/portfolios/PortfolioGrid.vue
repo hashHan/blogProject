@@ -49,12 +49,13 @@ import {mapGetters} from 'vuex'
 import portfoliobody from './portfolio/portfoliobody.vue'
 import CVimage from '../../../assets/CVwidth600.jpg'
 import BLOGimage from '../../../assets/BLOGwidth500.jpg'
+import Todoimage from '../../../assets/Todowidth400.jpg'
 
 export default {
   data(){
     return {
       mysection: "portfolios",
-      imagearray: [CVimage, BLOGimage]
+      imagearray: [CVimage, BLOGimage, Todoimage]
       
     }
   },

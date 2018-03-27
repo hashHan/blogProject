@@ -21,7 +21,7 @@
                 <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">Home</a></router-link>
               </li>
               <li class="nav-item mx-0 mx-lg-1">
-                <a :href="CVurl" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a>
+                <a target="_blank" :href="CVurl" class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">CV</a>
               </li>
               <li class="nav-item mx-0 mx-lg-1"><router-link to="/PortfolioGrid" @click.native="scroll">
                 <a class="nav-link py-1 px-0 px-lg-3 rounded js-scroll-trigger">PORTFOLIO</a></router-link>
