@@ -2,7 +2,6 @@
     <header class="container-fluid masthead bg-picture text-border text-white text-center">
         <div class="container text-container">
           <div class="text-container2">
-            <img class="img-fluid mb-5 d-block mx-auto" src="#" alt="">
             <h1 class="text-uppercase mb-0 d-none d-sm-block">HAESEONG HAN</h1>
             <hr class="star-light">
             <ul id="headericons" class="list-inline text-center">
