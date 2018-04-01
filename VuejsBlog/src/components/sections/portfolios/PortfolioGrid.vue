@@ -1,11 +1,11 @@
 <template>
   <div name="portfolio-modal">
-    <div v-for="(each, index) in hardContent" :key="index">
+    <div class="mb-5" v-for="each in hardContent.slice().reverse()" :key="each.updatedDate">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-light portfolio-button" data-toggle="modal" :data-target="'#'+mysection+each.number">
+      <button type="button" class="btn btn-light portfolio-button" data-toggle="modal" :data-target="'#'+mysection+each.id">
         <div class="row justify-content-left">
           <div class="col-5">
-             <img class="img-fluid" :src="imagearray[index]" alt="thumbnail image">
+             <img class="img-fluid" :src="each.thumbnail" alt="thumbnail image">
           </div>
           <div class="col-5 auto mt-4 button-text">   
              <p>{{ each.title }}</p>
@@ -14,22 +14,22 @@
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" :id="mysection+each.number" tabindex="-1" role="dialog" 
-            :aria-labelledby="mysection+each.number+'LongTitle'" aria-hidden="true">
+      <div class="modal fade" :id="mysection+each.id" tabindex="-1" role="dialog" 
+            :aria-labelledby="mysection+each.id+'LongTitle'" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" :id="mysection+each.number+'LongTitle'">{{ each.title }}</h5>
+              <h5 class="modal-title" :id="mysection+each.id+'LongTitle'">{{ each.title }}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <app-portfoliobody :body="each.body">
+              <app-portfoliobody :body="each">
                 <figure slot="figurespace" class="figure">
-                  <img :src="imagearray[index]" class="figure-img img-fluid rounded" alt="figure of this portfolio">
+                  <img :src="each.thumbnail" class="figure-img img-fluid rounded" alt="figure of this portfolio">
                   <figcaption class="figure-caption text-right">
-                      <a :href="each.body.link">LINK</a>
+                      <a :href="each.link">LINK</a>
                   </figcaption>
                 </figure>
               </app-portfoliobody>
@@ -47,16 +47,11 @@
 <script>
 import {mapGetters} from 'vuex'
 import portfoliobody from './portfolio/portfoliobody.vue'
-import CVimage from '../../../assets/CVwidth600.jpg'
-import BLOGimage from '../../../assets/BLOGwidth500.jpg'
-import Todoimage from '../../../assets/Todowidth400.jpg'
 
 export default {
   data(){
     return {
-      mysection: "portfolios",
-      imagearray: [CVimage, BLOGimage, Todoimage]
-      
+      mysection: "portfolios"
     }
   },
   computed: {

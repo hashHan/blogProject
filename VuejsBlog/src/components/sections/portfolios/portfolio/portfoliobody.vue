@@ -7,16 +7,16 @@
         <div class="mb-5">
             <h4>SKILLS</h4>
             <ul class="list-group">
-                <li class="skills list-group-item" v-for="(skill, index) in body.skills" :key="index">
-                    {{skill}}
+                <li class="skills list-group-item">
+                    {{body.skills}}
                 </li>
             </ul>
         </div>
         <div class="">
-            <h4>PROCESS</h4>
+            <h4>CONTENT</h4>
             <ul class="list-group text-left">
-                <li class="processes list-group-item" v-for="(process, index) in body.processes" :key="index">
-                    {{index+1}}. {{process}}
+                <li class="processes list-group-item">
+                    {{body.content}}
                 </li>
             </ul>
         </div>
